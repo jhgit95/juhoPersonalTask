@@ -8,14 +8,18 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        int QSize = 10;
+        Queue<Integer> Q = new LinkedList<>();
+        if(Q.size()>=QSize){
+            Q.poll();
+        }
 
-        int[] result = new int[10];
-
-
+        int result;
 
         String breakWord = "";
         while (!breakWord.equals("exit")){
             System.out.println("breakWord = "+breakWord);
+            System.out.println(Q);
 
             System.out.println("첫 입력");
             int firstInput = sc.nextInt();
@@ -30,24 +34,44 @@ public class Main {
 
             switch (c){
                 case '+':
-                    System.out.println(firstInput+secondInput);
+                    result = firstInput+secondInput;
+                    System.out.println(result);
+                    if(Q.size()>=QSize){
+                        Q.poll();
+                    }
+                    Q.add(result);
                     break;
 
                 case '-':
-                    System.out.println(firstInput-secondInput);
+                    result = firstInput-secondInput;
+                    System.out.println(result);
+                    if(Q.size()>=QSize){
+                        Q.poll();
+                    }
+                    Q.add(result);
                     break;
 
                 case '*':
-                    System.out.println(firstInput*secondInput);
+                    result = firstInput*secondInput;
+                    System.out.println(result);
+                    if(Q.size()>=QSize){
+                        Q.poll();
+                    }
+                    Q.add(result);
                     break;
 
                 case '/':
                     if(secondInput==0){
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+
                         break;
                     }
-
-                    System.out.println(firstInput/secondInput);
+                    result = firstInput/secondInput;
+                    System.out.println(result);
+                    if(Q.size()>=QSize){
+                        Q.poll();
+                    }
+                    Q.add(result);
                     break;
 
                 default:
