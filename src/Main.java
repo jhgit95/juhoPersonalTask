@@ -8,11 +8,9 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        int QSize = 10;
-        Queue<Integer> Q = new LinkedList<>();
-        if(Q.size()>=QSize){
-            Q.poll();
-        }
+//        int qSize = 3;
+        int qSize = 10;
+        Queue<Integer> qq = new LinkedList<>();
 
         int result;
 
@@ -28,34 +26,34 @@ public class Main {
             sc.nextLine();
 
             System.out.println("사칙연산 기호 입력");
-            char c = sc.next().charAt(0);
+            char c = sc.nextLine().charAt(0);
 
             switch (c){
                 case '+':
                     result = firstInput+secondInput;
                     System.out.println(result);
-                    if(Q.size()>=QSize){
-                        Q.poll();
+                    if(qq.size()>=qSize){
+                        qq.poll();
                     }
-                    Q.add(result);
+                    qq.add(result);
                     break;
 
                 case '-':
                     result = firstInput-secondInput;
                     System.out.println(result);
-                    if(Q.size()>=QSize){
-                        Q.poll();
+                    if(qq.size()>=qSize){
+                        qq.poll();
                     }
-                    Q.add(result);
+                    qq.add(result);
                     break;
 
                 case '*':
                     result = firstInput*secondInput;
                     System.out.println(result);
-                    if(Q.size()>=QSize){
-                        Q.poll();
+                    if(qq.size()>=qSize){
+                        qq.poll();
                     }
-                    Q.add(result);
+                    qq.add(result);
                     break;
 
                 case '/':
@@ -66,31 +64,40 @@ public class Main {
                     }
                     result = firstInput/secondInput;
                     System.out.println(result);
-                    if(Q.size()>=QSize){
-                        Q.poll();
+                    if(qq.size()>=qSize){
+                        qq.poll();
                     }
-                    Q.add(result);
+                    qq.add(result);
                     break;
 
                 default:
                     System.out.println("잘못된 입력입니다.");
                     break;
             }
-            // 이거 안 넣으면 자꾸 commandWord 입력 안 받고 나가지는데, 나중에 튜터님께 질문하기
-            sc.nextLine();
+
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             commandWord= sc.nextLine();
             if(commandWord.equals("remove")){
-                Q.poll();
+                qq.poll();
             }
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            commandWord= sc.nextLine();
+            if(commandWord.equals("inquiry")){
+                for(int value : qq){
+                    System.out.println("뭐가있징?!"+value);
+                }
+            }
+
+
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             commandWord= sc.nextLine();
 
 
-            System.out.println("commandWord = "+commandWord);
-            System.out.println("Q = "+Q);
+
+//            System.out.println("commandWord = "+commandWord);
+//            System.out.println("qq = "+qq);
 
             }
 
