@@ -42,8 +42,16 @@ public class Main {
                     break;
 
                 case '/':
+                    if(secondInput==0){
+                        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                        break;
+                    }
 
                     System.out.println(firstInput/secondInput);
+                    break;
+
+                default:
+                    System.out.println("잘못된 입력입니다.");
                     break;
             }
 
