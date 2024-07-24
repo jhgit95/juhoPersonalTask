@@ -16,10 +16,8 @@ public class Main {
 
         int result;
 
-        String breakWord = "";
-        while (!breakWord.equals("exit")){
-            System.out.println("breakWord = "+breakWord);
-            System.out.println(Q);
+        String commandWord = "";
+        while (!commandWord.equals("exit")){
 
             System.out.println("첫 입력");
             int firstInput = sc.nextInt();
@@ -78,11 +76,21 @@ public class Main {
                     System.out.println("잘못된 입력입니다.");
                     break;
             }
+            // 이거 안 넣으면 자꾸 commandWord 입력 안 받고 나가지는데, 나중에 튜터님께 질문하기
+            sc.nextLine();
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            commandWord= sc.nextLine();
+            if(commandWord.equals("remove")){
+                Q.poll();
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            // 이거 안 넣으면 자꾸 breakWord 입력 안 받고 나가지는데, 나중에 튜터님께 질문하기
-            sc.nextLine();
-            breakWord= sc.nextLine();
+            commandWord= sc.nextLine();
+
+
+            System.out.println("commandWord = "+commandWord);
+            System.out.println("Q = "+Q);
 
             }
 
