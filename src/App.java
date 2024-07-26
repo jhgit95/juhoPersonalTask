@@ -13,17 +13,21 @@ public class App {
 
             System.out.println("첫 입력");
             int firstInput = sc.nextInt();
+            calculator.setFirstInput(firstInput);
 
             System.out.println("두 번째 입력");
             int secondInput = sc.nextInt();
+            calculator.setSecondInput(secondInput);
+
             // 버퍼 정리
             sc.nextLine();
 
             System.out.println("사칙연산 기호 입력");
             char c = sc.nextLine().charAt(0);
+            calculator.setC(c);
 
             try {
-                calculator.calculation(firstInput, secondInput, c);
+                calculator.calculation();
             } catch (ExceptionClass e) {
                 System.out.println(e.getMessage());
 
@@ -36,14 +40,12 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             commandWord = sc.nextLine();
             if (commandWord.equals("remove")) {
-                calculator.resultQueue.poll();
+                calculator.resultDelete();
             }
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             commandWord = sc.nextLine();
             if (commandWord.equals("inquiry")) {
-                for (int value : calculator.resultQueue) {
-                    System.out.println("뭐가있징?!" + value);
-                }
+                calculator.inquiryQueue();
             }
 
 
