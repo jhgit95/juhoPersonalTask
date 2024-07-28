@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
+//        Calculator calculator = new Calculator();
+        CircleCalculator circleC = new CircleCalculator();
+        ArithmeticCalculator arithmeticC = new ArithmeticCalculator();
 
         Scanner sc = new Scanner(System.in);
 
@@ -66,9 +68,11 @@ public class App {
 
                 System.out.println("원의 반지름을 입력하세요.");
                 double radius = sc.nextInt();
-                double sizeResult = calculator.circleSize(radius);
+                double sizeResult = circleC.circleSize(radius);
                 System.out.println("원의 넓이 = " + sizeResult);
-                calculator.setSizeQueue(sizeResult);
+                circleC.resultUpdate();
+                circleC.setSizeQueue(sizeResult);
+
 
                 // 버퍼 정리
                 sc.nextLine();
@@ -77,21 +81,21 @@ public class App {
 
                 System.out.println("첫 입력");
                 int firstInput = sc.nextInt();
-                calculator.setFirstInput(firstInput);
+                arithmeticC.setFirstInput(firstInput);
 
                 System.out.println("두 번째 입력");
                 int secondInput = sc.nextInt();
-                calculator.setSecondInput(secondInput);
+                arithmeticC.setSecondInput(secondInput);
 
                 // 버퍼 정리
                 sc.nextLine();
 
                 System.out.println("사칙연산 기호 입력");
                 char c = sc.nextLine().charAt(0);
-                calculator.setC(c);
+                arithmeticC.setC(c);
 
                 try {
-                    calculator.calculation();
+                    arithmeticC.calculation();
                 } catch (ExceptionClass e) {
                     System.out.println(e.getMessage());
 
@@ -113,17 +117,17 @@ public class App {
 
             commandWord = sc.nextLine();
             if (commandWord.equals("remove") && choiceCalculator.equals("1")) {
-                calculator.sizeDelete();
+                circleC.sizeDelete();
             }
             if (commandWord.equals("remove") && choiceCalculator.equals("2")) {
-                calculator.resultDelete();
+                arithmeticC.resultDelete();
             }
 
             if (commandWord.equals("inquiry") && choiceCalculator.equals("1")) {
-                calculator.inquirySizeQueue();
+                circleC.inquirySizeQueue();
             }
             if (commandWord.equals("inquiry") && choiceCalculator.equals("2")) {
-                calculator.inquiryQueue();
+                arithmeticC.inquiryQueue();
             }
 
 
