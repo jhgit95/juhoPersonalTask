@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+package Calculator;
 
 public class Calculator {
 
@@ -15,7 +14,7 @@ public class Calculator {
 
 
     // 생성자
-//    public Calculator() {
+//    public Calculator.Calculator() {
 //        this.resultQueue = new LinkedList<>();
 //        this.qSize = 10;
 //        this.sizeQueue = new LinkedList<>();

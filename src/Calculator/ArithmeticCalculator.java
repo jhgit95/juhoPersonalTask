@@ -1,16 +1,30 @@
+package Calculator;
+
+import Calculator.ArithmeticPackage.AddOperator;
+import Calculator.ArithmeticPackage.DivideOperator;
+import Calculator.ArithmeticPackage.MultiplyOperator;
+import Calculator.ArithmeticPackage.SubtractOperator;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator extends Calculator  {
 
     // 사칙연산 결과를 담는 컬렉션
     Queue<Integer> resultQueue = new LinkedList<>();
 
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
 
     // 생성자
     public ArithmeticCalculator() {
-
         this.resultQueue = new LinkedList<>();
+        this.addOperator = new AddOperator();
+        this.subtractOperator = new SubtractOperator();
+        this.multiplyOperator = new MultiplyOperator();
+        this.divideOperator = new DivideOperator();
     }
 
     // firstInput 입력
@@ -68,22 +82,19 @@ public class ArithmeticCalculator extends Calculator {
 
         switch (this.c) {
             case '+':
-                result = this.firstInput + this.secondInput;
-                System.out.println(firstInput + " " + c + " " + secondInput + " = " + result);
+                result = addOperator.add(1,2);
                 resultUpdate();
                 resultQueue.add(result);
                 break;
 
             case '-':
-                result = this.firstInput - this.secondInput;
-                System.out.println(firstInput + " " + c + " " + secondInput + " = " + result);
+                result = subtractOperator.subtract(firstInput,secondInput);
                 resultUpdate();
                 resultQueue.add(result);
                 break;
 
             case '*':
-                result = this.firstInput * this.secondInput;
-                System.out.println(firstInput + " " + c + " " + secondInput + " = " + result);
+                result = multiplyOperator.multiply(firstInput,secondInput);
                 resultUpdate();
                 resultQueue.add(result);
                 break;
@@ -92,8 +103,7 @@ public class ArithmeticCalculator extends Calculator {
                 if (secondInput == 0) {
                     throw new ExceptionClass("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 }
-                result = this.firstInput / this.secondInput;
-                System.out.println(firstInput + " " + c + " " + secondInput + " = " + result);
+                result = divideOperator.divide(firstInput,secondInput);
                 resultUpdate();
                 resultQueue.add(result);
                 break;
