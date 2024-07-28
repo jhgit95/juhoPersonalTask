@@ -40,6 +40,10 @@ public class Calculator {
 
         }
     }
+    // sizeQueue의 결과 삭제
+    public void sizeDelete() {
+        sizeQueue.poll();
+    }
 
 
 
