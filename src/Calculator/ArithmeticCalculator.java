@@ -8,7 +8,7 @@ import Calculator.ArithmeticPackage.SubtractOperator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ArithmeticCalculator extends Calculator  {
+public class ArithmeticCalculator extends Calculator {
 
     // 사칙연산 결과를 담는 컬렉션
     Queue<Integer> resultQueue = new LinkedList<>();
@@ -79,38 +79,28 @@ public class ArithmeticCalculator extends Calculator  {
     // 사칙연산 메서드
     public void calculation() throws ExceptionClass {
 
-
         switch (this.c) {
             case '+':
-                result = addOperator.add(1,2);
-                resultUpdate();
-                resultQueue.add(result);
+                result = addOperator.add(firstInput, secondInput);
                 break;
 
             case '-':
-                result = subtractOperator.subtract(firstInput,secondInput);
-                resultUpdate();
-                resultQueue.add(result);
+                result = subtractOperator.subtract(firstInput, secondInput);
                 break;
 
             case '*':
-                result = multiplyOperator.multiply(firstInput,secondInput);
-                resultUpdate();
-                resultQueue.add(result);
+                result = multiplyOperator.multiply(firstInput, secondInput);
                 break;
 
             case '/':
-                if (secondInput == 0) {
-                    throw new ExceptionClass("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                }
-                result = divideOperator.divide(firstInput,secondInput);
-                resultUpdate();
-                resultQueue.add(result);
+                result = divideOperator.divide(firstInput, secondInput);
                 break;
 
             default:
                 throw new ExceptionClass("잘못된 연산자입니다. 입력한 문자 = " + c);
         }
+        resultUpdate();
+        resultQueue.add(result);
 
 
     }
