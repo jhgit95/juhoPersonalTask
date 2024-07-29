@@ -1,9 +1,6 @@
 package Calculator;
 
-import Calculator.ArithmeticPackage.AddOperator;
-import Calculator.ArithmeticPackage.DivideOperator;
-import Calculator.ArithmeticPackage.MultiplyOperator;
-import Calculator.ArithmeticPackage.SubtractOperator;
+import Calculator.ArithmeticPackage.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -17,6 +14,7 @@ public class ArithmeticCalculator extends Calculator {
     SubtractOperator subtractOperator;
     MultiplyOperator multiplyOperator;
     DivideOperator divideOperator;
+    ModOperator modOperator;
 
     // 생성자
     public ArithmeticCalculator() {
@@ -25,6 +23,7 @@ public class ArithmeticCalculator extends Calculator {
         this.subtractOperator = new SubtractOperator();
         this.multiplyOperator = new MultiplyOperator();
         this.divideOperator = new DivideOperator();
+        this.modOperator = new ModOperator();
     }
 
     // firstInput 입력
@@ -95,7 +94,9 @@ public class ArithmeticCalculator extends Calculator {
             case '/':
                 result = divideOperator.divide(firstInput, secondInput);
                 break;
-
+            case '%':
+                result = modOperator.mod(firstInput,secondInput);
+                break;
             default:
                 throw new ExceptionClass("잘못된 연산자입니다. 입력한 문자 = " + c);
         }
