@@ -101,7 +101,7 @@ public class ArithmeticCalculator extends Calculator {
             default:
                 throw new ExceptionClass("잘못된 연산자입니다. 입력한 문자 = " + operator);
         }
-        resultUpdate();
+//        resultUpdate();
         resultQueue.add(result);
 
     }

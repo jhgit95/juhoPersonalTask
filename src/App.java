@@ -77,7 +77,7 @@ public class App {
                 double radius = sc.nextDouble();
                 double sizeResult = circleC.circleSize(radius);
                 System.out.println("원의 넓이 = " + sizeResult);
-                circleC.resultUpdate();
+//                circleC.resultUpdate();
                 circleC.setSizeQueue(sizeResult);
 
 
@@ -118,7 +118,7 @@ public class App {
             }
 
 
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            System.out.println("연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제, 가장 오래된 결과 값 1개 삭제)");
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
 
