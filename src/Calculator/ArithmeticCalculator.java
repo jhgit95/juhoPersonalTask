@@ -56,7 +56,7 @@ public class ArithmeticCalculator extends Calculator {
         System.out.println("연산자 = " + this.secondInput);
     }
 
-    // 사칙연산 결과 삭제
+    // 가장 오래된 사칙연산 결과 1개 삭제
     final public void resultDelete() {
         resultQueue.poll();
     }

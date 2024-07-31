@@ -15,11 +15,12 @@ public class CircleCalculator extends Calculator {
         this.sizeQueue = new LinkedList<>();
     }
 
-    // sizeQueue 값 저장
+    // 원의 넓이 값 저장
     public void setSizeQueue(double s) {
         sizeQueue.add(s);
     }
 
+    // 원의 넓이 저장 최대치(10개)가 넘을 경우, 가장 오래전에 저장된 수를 삭제하는 기능
     public void resultUpdate() {
         if (sizeQueue.size() >= qSize) {
             sizeQueue.poll();
@@ -27,17 +28,14 @@ public class CircleCalculator extends Calculator {
 
     }
 
-    // sizeQueue 결과 조회
+    // 저장된 원의 넓이 결과 조회
     public void inquirySizeQueue() {
-        int i = 1;
         for (double value : sizeQueue) {
-            System.out.println(i + ". 넓이 결과 값 = " + value);
-            i++;
-
+            System.out.println("넓이 결과 값 = " + value);
         }
     }
 
-    // sizeQueue의 결과 삭제
+    // 가장 오래된 원의 넓이의 결과 1개 삭제
     public void sizeDelete() {
         sizeQueue.poll();
     }

@@ -21,10 +21,10 @@ public class App {
             if (choiceCalculator.equals("1")) {
                 // 원의 넓이 공식 = 파이 * 반지름^2
 
-                // static, final에 대한 고민
+                // static, final에 대한 고민(2레벨 7번)
                 // 결론적으로 저는 final만 메서드에 사용했습니다.
                 // 변수는 바꾸거나 삭제 등 변할 가능성이 있다고 생각하는데,
-                // 메서드는 바꿀 일 없다고 생각이 들어서, 메서드에만 적용해봤습니다.
+                // 일부 메서드는 바꿀 일 없다고 생각이 들어서, 일부 메서드에만 적용해봤습니다.
                 //
                 // static과 final이 무엇이고 왜 써야하는지 알아본 결과를 요약하자면,
                 // static   장점 : 메모리 절약, 공유, 편리성, 글로벌 접근
@@ -74,7 +74,7 @@ public class App {
 
 
                 System.out.println("원의 반지름을 입력하세요.");
-                double radius = sc.nextInt();
+                double radius = sc.nextDouble();
                 double sizeResult = circleC.circleSize(radius);
                 System.out.println("원의 넓이 = " + sizeResult);
                 circleC.resultUpdate();
