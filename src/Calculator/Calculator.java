@@ -2,15 +2,14 @@ package Calculator;
 
 public class Calculator {
 
-
     // 연산 결과를 저장하는 필드
-     int qSize = 3;
-//    int qSize = 10;
+//     int qSize = 3;
+    int qSize = 10;
 
     int result;
     int firstInput;
     int secondInput;
-    char c;
+    char operator;
 
 
     // 생성자

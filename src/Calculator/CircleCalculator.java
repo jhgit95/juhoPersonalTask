@@ -15,8 +15,6 @@ public class CircleCalculator extends Calculator {
         this.sizeQueue = new LinkedList<>();
     }
 
-
-
     // sizeQueue 값 저장
     public void setSizeQueue(double s) {
         sizeQueue.add(s);

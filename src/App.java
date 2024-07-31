@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-//        Calculator.Calculator calculator = new Calculator.Calculator();
         CircleCalculator circleC = new CircleCalculator();
         ArithmeticCalculator arithmeticC = new ArithmeticCalculator();
 
@@ -87,20 +86,20 @@ public class App {
 
             } else if (choiceCalculator.equals("2")) {
 
-                System.out.println("첫 입력");
+                System.out.println("첫 숫자를 입력해 주세요.(숫자 입력)");
                 int firstInput = sc.nextInt();
                 arithmeticC.setFirstInput(firstInput);
 
-                System.out.println("두 번째 입력");
+                System.out.println("두 번째 숫자를 입력해 주세요.(숫자 입력) ");
                 int secondInput = sc.nextInt();
                 arithmeticC.setSecondInput(secondInput);
 
                 // 버퍼 정리
                 sc.nextLine();
 
-                System.out.println("사칙연산 기호 입력");
-                char c = sc.nextLine().charAt(0);
-                arithmeticC.setC(c);
+                System.out.println("사칙연산 기호 입력해 주세요.(문자 입력)");
+                char operator = sc.nextLine().charAt(0);
+                arithmeticC.setOperator(operator);
 
                 try {
                     arithmeticC.calculation();
@@ -108,7 +107,7 @@ public class App {
                     System.out.println(e.getMessage());
 
                 } finally {
-                    System.out.println("try catch finally 잘 됐나요 ?");
+//                    System.out.println("try catch finally 잘 됐나요 ?");
 
                 }
 

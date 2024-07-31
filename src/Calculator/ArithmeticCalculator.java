@@ -26,48 +26,49 @@ public class ArithmeticCalculator extends Calculator {
         this.modOperator = new ModOperator();
     }
 
-    // firstInput 입력
-    public void setFirstInput(int firstInput) {
+    // 첫 숫자 입력
+    final public void setFirstInput(int firstInput) {
         this.firstInput = firstInput;
     }
 
-    // firstInput 출력
+    // 첫 숫자 출력
     public void getFirstInput() {
         System.out.println("첫 번째 입력 = " + this.firstInput);
     }
 
-    // secondInput 입력
-    public void setSecondInput(int secondInput) {
+    // 두 번째 숫자 입력
+    final public void setSecondInput(int secondInput) {
         this.secondInput = secondInput;
     }
 
-    // secondInput 출력
+    // 두 번째 숫자 출력
     public void getSecondInput() {
         System.out.println("두 번째 입력 = " + this.secondInput);
     }
 
-    public void setC(char c) {
-        this.c = c;
+    // 연산 기호 입력
+    final public void setOperator(char operator) {
+        this.operator = operator;
     }
 
-    public void getC() {
-        System.out.println("두 번째 입력 = " + this.secondInput);
+    // 연산 기호 출력
+    public void getOperator() {
+        System.out.println("연산자 = " + this.secondInput);
     }
 
-    // resultQueue의 결과 삭제
-    public void resultDelete() {
+    // 사칙연산 결과 삭제
+    final public void resultDelete() {
         resultQueue.poll();
     }
 
-    // resultQueue의 결과 조회
+    // 사칙연산 결과 조회
     public void inquiryQueue() {
         for (int value : resultQueue) {
-            System.out.println("뭐가있징?!" + value);
+            System.out.println("저장된 결과 값 = " + value);
         }
     }
 
-
-    // 큐 컬렉션의 결과 값이 최대치가 넘을 경우 삭제하는 기능
+    // 사칙연산 저장 최대치(10개)가 넘을 경우, 가장 오래전에 저장된 수를 삭제하는 기능
     public void resultUpdate() {
         if (resultQueue.size() >= qSize) {
             resultQueue.poll();
@@ -78,7 +79,7 @@ public class ArithmeticCalculator extends Calculator {
     // 사칙연산 메서드
     public void calculation() throws ExceptionClass {
 
-        switch (this.c) {
+        switch (this.operator) {
             case '+':
                 result = addOperator.add(firstInput, secondInput);
                 break;
@@ -95,16 +96,14 @@ public class ArithmeticCalculator extends Calculator {
                 result = divideOperator.divide(firstInput, secondInput);
                 break;
             case '%':
-                result = modOperator.mod(firstInput,secondInput);
+                result = modOperator.mod(firstInput, secondInput);
                 break;
             default:
-                throw new ExceptionClass("잘못된 연산자입니다. 입력한 문자 = " + c);
+                throw new ExceptionClass("잘못된 연산자입니다. 입력한 문자 = " + operator);
         }
         resultUpdate();
         resultQueue.add(result);
 
-
     }
-
 
 }
