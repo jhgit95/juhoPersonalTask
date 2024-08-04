@@ -8,7 +8,7 @@ import java.util.Queue;
 public class ArithmeticCalculator extends Calculator {
 
     // 사칙연산 결과를 담는 컬렉션
-    Queue<Integer> resultQueue = new LinkedList<>();
+    protected Queue<Integer> resultQueue = new LinkedList<>();
 
     AddOperator addOperator;
     SubtractOperator subtractOperator;

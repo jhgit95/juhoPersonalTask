@@ -8,7 +8,7 @@ import java.util.Queue;
 public class CircleCalculator extends Calculator {
 
     // 원의 넓이 계산 결과를 담는 컬렉션
-    Queue<Double> sizeQueue = new LinkedList<>();
+    protected Queue<Double> sizeQueue = new LinkedList<>();
 
     // 생성자
     public CircleCalculator() {

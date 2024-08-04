@@ -4,12 +4,12 @@ public class Calculator {
 
     // 연산 결과를 저장하는 필드
 //     int qSize = 3;
-    int qSize = 10;
+    protected int qSize = 10;
 
-    int result;
-    int firstInput;
-    int secondInput;
-    char operator;
+    protected int result;
+    protected int firstInput;
+    protected int secondInput;
+    protected char operator;
 
 
     // 생성자
